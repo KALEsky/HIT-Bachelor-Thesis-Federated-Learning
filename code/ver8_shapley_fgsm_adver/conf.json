@@ -1,0 +1,34 @@
+{
+	"model_name" : "lenet5",
+
+	"type" : "mnist",
+
+	"global_epochs" : 10,
+
+	"local_epochs" : 3,
+
+	"no_models" : 5,
+
+	"k" : "每一轮选用k个客户端参与训练",
+	"k" : 5,
+
+	"num_fgsm_attack_clients": 1,
+  	"num_label_poisoning_clients": 1,
+
+	"batch_size" : "本地训练每一轮的样本数",
+	"batch_size" : 32,
+
+	"num_classes": 10,
+
+    "notes" : "本地训练的超参数设置",
+	"lr" : 0.01,
+	"momentum" : 0.0001,
+	"lambda" : 0.1,
+
+	"attack_probability": 1,
+	"adversarial_epsilon": 1,
+
+    "min_reputation": 0.1,
+    "max_reputation": 10,
+	"adjustment_factor": 5
+}
