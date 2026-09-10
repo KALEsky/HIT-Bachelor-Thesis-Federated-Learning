@@ -152,21 +152,21 @@ Shapley 计算会重复训练和评估多个客户端子集，因此运行速度
 
 下面两张图来自早期联邦学习基线实验，用来说明联邦训练与传统单点/集中式训练的差异：
 
-![Federated learning baseline](figures/origin-fl.png)
+![Federated learning baseline](docs/figures/origin-fl.png)
 
-![Traditional baseline](figures/origin-traditional.png)
+![Traditional baseline](docs/figures/origin-traditional.png)
 
 ### Shapley defense experiments
 
 这些图对应不同攻击概率和调整因子的历史运行结果。图名保留了原始实验编号，方便和论文中的图 4-2、图 4-3、图 4-4 对照：
 
-![Strong attack, adjustment factor 0](figures/shapley-factor-0.png)
+![Strong attack, adjustment factor 0](docs/figures/shapley-factor-0.png)
 
-![Strong attack, adjustment factor 3](figures/shapley-factor-3.png)
+![Strong attack, adjustment factor 3](docs/figures/shapley-factor-3.png)
 
-![Strong attack, adjustment factor 5](figures/shapley-factor-5.png)
+![Strong attack, adjustment factor 5](docs/figures/shapley-factor-5.png)
 
-![Strong attack, adjustment factor 7](figures/shapley-factor-7.png)
+![Strong attack, adjustment factor 7](docs/figures/shapley-factor-7.png)
 
 ## Reading the implementation together with the thesis
 
