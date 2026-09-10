@@ -148,25 +148,17 @@ Shapley 计算会重复训练和评估多个客户端子集，因此运行速度
 
 论文最后选择调整因子 `5` 作为更均衡的设置：因子 `7` 的最终数字略高，但因子 `5` 在训练前期下降更快，整体适应速度更好。
 
-### Baseline comparison
+## Experiment overview
 
-下面两张图来自早期联邦学习基线实验，用来说明联邦训练与传统单点/集中式训练的差异：
+论文中的原始曲线适合放在实验记录里，但单独看不太容易理解方法到底做了什么。因此这里用一张总览图把三个关键观察放在一起：
 
-![Federated learning baseline](docs/figures/origin-fl.png)
+![Experiment overview: adjustment factor, client contribution, and recovery](docs/figures/experiment-overview.png)
 
-![Traditional baseline](docs/figures/origin-traditional.png)
+- 左上：在强攻击条件下，信誉调整因子从 `0`、`3`、`5` 到 `7` 时的最终准确率和损失。论文选择 `5`，是因为它在最终效果和前期恢复速度之间更均衡。
+- 右上：一次调整因子为 `5` 的运行在最后一轮的客户端状态。正常客户端的 Shapley 值和信誉较高，FGSM 与标签注入客户端的贡献/信誉被压低，因而在下一轮聚合中影响更小。
+- 下方：同一次强攻击运行的全局准确率和损失变化。模型从较低的初始准确率逐步恢复，最后达到论文记录的 `91.25%`。
 
-### Shapley defense experiments
-
-这些图对应不同攻击概率和调整因子的历史运行结果。图名保留了原始实验编号，方便和论文中的图 4-2、图 4-3、图 4-4 对照：
-
-![Strong attack, adjustment factor 0](docs/figures/shapley-factor-0.png)
-
-![Strong attack, adjustment factor 3](docs/figures/shapley-factor-3.png)
-
-![Strong attack, adjustment factor 5](docs/figures/shapley-factor-5.png)
-
-![Strong attack, adjustment factor 7](docs/figures/shapley-factor-7.png)
+图中数据来自论文结果摘要和历史 `run8` 输出，不是上传时重新训练得到的新基准。
 
 ## Reading the implementation together with the thesis
 
