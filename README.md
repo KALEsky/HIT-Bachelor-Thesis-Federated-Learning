@@ -148,6 +148,34 @@ Shapley 计算会重复训练和评估多个客户端子集，因此运行速度
 
 论文最后选择调整因子 `5` 作为更均衡的设置：因子 `7` 的最终数字略高，但因子 `5` 在训练前期下降更快，整体适应速度更好。
 
+## Thesis figures
+
+论文第四章的四组核心结果图已经单独整理出来。它们不是装饰图，而是分别对应“激励机制是否有效”“攻击强度变化时是否能恢复”“调整因子怎么选”和“Shapley/信誉是否真的区分了客户端”这四个问题。
+
+### Figure 4-1 · Incentive mechanism vs ordinary FedAvg
+
+![Figure 4-1: incentive mechanism versus ordinary federated averaging](docs/figures/thesis-figure-4-1.png)
+
+使用信誉激励的 FL 在准确率上升速度和损失下降速度上都优于普通联邦平均，说明信誉加权不是只改变了一个统计量，而是实际影响了训练过程。
+
+### Figure 4-2 · Different attack intensities
+
+![Figure 4-2: no attack, weak attack, and strong attack](docs/figures/thesis-figure-4-2.png)
+
+在无攻击、弱攻击和强攻击三种环境下，模型都能继续恢复；强攻击下前期更困难，但后期仍然接近较高的准确率。
+
+### Figure 4-3 · Reputation adjustment factor
+
+![Figure 4-3: adjustment factors 0, 3, 5, and 7](docs/figures/thesis-figure-4-3.png)
+
+调整因子为 `5` 的曲线在恢复速度和最终效果之间最均衡，这也是论文最终采用它作为代表设置的原因。
+
+### Figure 4-4 · Shapley values and reputation
+
+![Figure 4-4: client Shapley values and reputation trajectories](docs/figures/thesis-figure-4-4.png)
+
+这组图最直接地展示了方法的核心：恶意客户端的 Shapley 值长期偏低，信誉随训练下降；正常客户端则保持较高贡献和信誉，因此在后续聚合中拥有更大的权重。
+
 ## Experiment overview
 
 论文中的原始曲线适合放在实验记录里，但单独看不太容易理解方法到底做了什么。因此这里用一张总览图把三个关键观察放在一起：
